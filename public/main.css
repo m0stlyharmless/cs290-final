@@ -1,0 +1,145 @@
+html, body {
+	margin: 0 0 0 0px;
+	height: 100%;
+}
+header {
+	background-color: #989898;
+	align-items: center;
+	display: flex;
+	position: relative;
+	max-height: 200px;
+	margin: 0 0 0 0px;
+}
+
+.page {
+	display: flex;
+	height: 100%;
+}
+
+.button-holder {
+	width: 50%;
+	height: 100%;
+	margin:0 25% 0px;
+	padding: 20px;
+	border-color: #dee5e5; 
+	background-color: #dee5e5;
+	align-items: center;
+	display: flex;
+	align-items: center;
+}
+
+#teacher-hub {
+	margin-left: 15%;
+	margin-right: 10%;
+}
+#student-hub {
+	margin-left: 10%;
+	margin-right: 15%;
+}
+#id-label {
+	font-family: "Bookman";
+	font-size: 30px;
+	color: #635bc5;
+	margin-left: 10px;
+	font-weight: bold;
+	margin-right: 25px;
+}
+
+#get-id, #get-name {	
+	font-family: "Bookman";
+	font-size: 26px;
+	color: #635bc5;
+	margin-left: 10px;
+	font-weight: bold;
+	margin-right: 25px;
+}
+
+#create-quiz, #start-quiz {
+	height: 80px;
+	width: 200px;
+	font-size: 25px;
+	color: #050133;
+	margin: 10px 40%;
+	margin-top: 40px;
+	padding: 15px;
+	background-color: #91c3db;
+	border: 2px solid #050133;
+	border-radius: 3px;
+	cursor: pointer;
+
+}
+#top {
+	font-size: 50px;
+	font-family: "Bookman";
+	margin-left: 30%;
+	margin-bottom: 20px;
+	color: #6565c8;
+}
+
+.id-input {
+	flex: 1 auto;
+	width: 33%;
+}
+.teacher-hub-container {
+	width: 100%;
+	margin-top: 10px;
+	padding: 0px
+	align-items: center;
+	display: flex;
+	align-items: center;
+}
+
+#name-text, #get-id-text {	
+	font-size: 20px;
+	margin-top: 0px;
+	color black;
+	border: 1px solid grey;
+	border-radius: 3px;
+	width: 150px;
+}
+
+#id-text {
+	font-size: 25px;
+	margin-top: 15px;
+	color black;
+	border: 1px solid grey;
+	border-radius: 3px;
+	width: 150px;
+}
+
+.hub-button {
+	font-size: 25px;
+	color: #050133;
+	padding: 15px;
+	background-color: #91c3db;
+	border: 2px solid #050133;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: #050133;
+}
+
+.t-hub-container {	
+	width: 50%;
+	height: 100%;
+	margin:0 25% 0px;
+	padding: 20px;
+	border-color: #dee5e5; 
+	background-color: #dee5e5;
+}
+
+.title {
+	font-family: "Bookman";
+	font-size: 80px;
+	color: black;
+	font-weight: 100;
+	margin: 20px 0 0 10px;
+	padding-top: 0px;
+}
+
+.title a:hover {
+	text-decoration: none;
+}

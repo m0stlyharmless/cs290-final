@@ -9,6 +9,20 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
+app.get('/teacher-hub', function(req, res) {
+	res.status(200).render('teacherHub', {
+		
+	});
+
+});
+
+app.get('/student-hub', function(req, res) {
+	res.status(200).render('studentHub', {
+		
+	});
+
+});
+
 app.get('/', function(req, res) {
 	res.status(200).render('homePage', {
 

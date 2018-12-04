@@ -1,0 +1,27 @@
+{
+  "123": {
+    "quiz-array": [
+      {
+        "question": "How tall am I?",
+        "firstAnswer": "10ft",
+		"secondAnswer": "20ft",
+		"thirdAnswer": "30ft",
+		"fourthAnswer": "40ft"
+      },
+      {
+        "question": "How much debt am I in",
+        "firstAnswer": "$0.10",
+		"secondAnswer": "$1,000",
+		"thirdAnswer": "$10,000",
+		"fourthAnswer": "$100,000"
+      },
+      {
+        "question": "What is green",
+        "firstAnswer": "a monkey",
+		"secondAnswer": "a dog",
+		"thirdAnswer": "a frog",
+		"fourthAnswer": "a lion"
+      }
+    ]
+  }
+}

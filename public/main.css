@@ -54,12 +54,12 @@ header {
 	margin-right: 25px;
 }
 
-#create-quiz, #start-quiz {
+#create-quiz, #edit-quiz, #start-quiz {
 	height: 80px;
 	width: 200px;
 	font-size: 25px;
 	color: #050133;
-	margin: 10px 40%;
+	margin: 10px 10%;
 	margin-top: 40px;
 	padding: 15px;
 	background-color: #91c3db;

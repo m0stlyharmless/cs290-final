@@ -1,0 +1,18 @@
+{{> header}}
+<script src="/quizzes.js" charset="utf-8" defer></script>
+<main class="page">
+	<div class="left-side">
+		
+	</div>
+	<section class="question-holder">
+		{{#each quiz-array}}
+			{{> quiz}}
+		{{/each}}
+		<div class="submit-button-holder">
+			<button type="button" id="submit" class="create-button">Submit Quiz</button>
+		</div>
+	</section>
+	<div class="right-side">
+
+	</div>
+</main>

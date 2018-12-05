@@ -54,7 +54,7 @@ header {
 	margin-right: 25px;
 }
 
-#create-quiz, #start-quiz, #submit {
+#create-quiz, #edit-quiz, #start-quiz, #submit {
 	height: 80px;
 	width: 200px;
 	font-size: 25px;

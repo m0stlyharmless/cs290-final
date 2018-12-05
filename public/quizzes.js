@@ -1,9 +1,10 @@
 let questionResults = [];
 
 function getResults() {
-    let fieldsets = document.getElementsByTagName("fieldset");
-    for (let i = 0; i < fieldsets.size; i++) {
-        let fieldset = fieldsets[i];
+    alert("Getting results...");
+    let questions = document.getElementsByClassName("question");
+    for (let i = 0; i < questions.size; i++) {
+        let fieldset = questions[i];
         for (let j = 0; j < fieldset.size; j++) {
             let checkbox = fieldset[j];
             if (checkbox.value) {
@@ -13,3 +14,8 @@ function getResults() {
         }
     }
 }
+
+document.getElementById("submit").onclick = function () {
+    getResults();
+};
+    

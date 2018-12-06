@@ -210,7 +210,12 @@ legend {
 	font-size: 20px;
 }
 
-#answers {
+.radio-buttons {
+	width:   85%;
+}
+
+.answers {
+	width: 100%;
 	border: 3px solid grey;
 	border-radius: 3px;
 	margin-left: 10px;

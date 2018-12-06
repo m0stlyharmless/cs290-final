@@ -33,7 +33,7 @@ function editButtonPressed() {
     loadJSON(function(response) {
         // Parse JSON string into object
 		var actual_JSON = JSON.parse(response);
-		quizData = actual_JSON;
+		var quizData = actual_JSON;
 		console.log(quizData);
 		if (quizData[quiz]) {
 			// Passed

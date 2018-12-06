@@ -12,7 +12,7 @@ function endQuiz() {
         
         if (ourQuizData) {
             // time to go through each question and tally up score
-            var numQuestions = ourQuizData["quiz-array"].length
+            var numQuestions = ourQuizData["quiz-array"].length;
             console.log(numQuestions);
             
             var answerIndexes = [];

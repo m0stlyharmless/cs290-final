@@ -90,7 +90,6 @@ header {
 #problem {
 	align-items: center;
 	display: flex;
-	align-items: center;
 }
 
 #not-found {	
@@ -126,7 +125,6 @@ header {
 	padding: 0px;
 	align-items: center;
 	display: flex;
-	align-items: center;
 }
 
 #get-question {

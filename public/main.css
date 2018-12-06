@@ -142,7 +142,7 @@ header {
 #get-key {
 	font-size: 20px;
 	margin-top: 0px;
-	color black;
+	color: black;
 	border: 1px solid grey;
 	border-radius: 3px;
 	width: 50%;
@@ -152,7 +152,7 @@ header {
 #name-text, #get-id-text, .answer-text-field {	
 	font-size: 20px;
 	margin-top: 0px;
-	color black;
+	color: black;
 	border: 1px solid grey;
 	border-radius: 3px;
 	width: 50%;
@@ -204,6 +204,18 @@ a {
 	width: 20%;
 	background-color: #91c3db;
 	float: right;
+}
+
+.close {
+	height: 30px;
+	width: 30px;
+	float: right;
+	border: 2px solid grey;
+	padding: 3px;
+	font-size: 20px;
+	cursor: pointer;
+	background-color: lightgrey;
+	
 }
 
 legend {

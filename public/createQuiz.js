@@ -106,7 +106,7 @@ function addQuestion() {
                             });
 
     console.log(globalQuestionList);
-    var quizHTML = Handlebars.templates.quiz(quizContext);
+    var quizHTML = Handlebars.templates.quiz2(quizContext);
     var questionSection = document.getElementById('quiz-create-holder');
     questionSection.insertAdjacentHTML('beforeend', quizHTML); 
 }
@@ -128,7 +128,7 @@ function addQuestionWithParams(question,answerOne,answerTwo,answerThree,answerFo
 	}
     */
 	//else {
-    var quizHTML = Handlebars.templates.quiz(quizContext);
+    var quizHTML = Handlebars.templates.quiz2(quizContext);
     var questionSection = document.getElementById('quiz-create-holder');
     questionSection.insertAdjacentHTML('beforeend', quizHTML); 
 	//}

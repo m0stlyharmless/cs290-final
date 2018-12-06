@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "handlebars views/partials/quiz.handlebars -f public/quizQuestion.js"
+    "build": "handlebars views/partials/quiz2.handlebars -f public/quizQuestion.js",
+    "prestart": "npm run build"
   },
   "author": "",
   "license": "UNLICENSED",

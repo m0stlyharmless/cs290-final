@@ -28,6 +28,10 @@ app.get('/student-hub', function(req, res) {
 
 
 app.get('/results', function(req, res) {
+    
+    // load results file.
+    
+    
 	res.status(200).render('results', {});
 
 });
@@ -62,13 +66,34 @@ app.post('/quizzes/postResponse', function (req, res) {
     console.log("== req.body:", req.body);
     //if (req.body && req.body.url && req.body.caption) {
     //console.log("== peopleData[" + person + "]:", peopleData[person]);
+    
+    fs.writeFileSync('student-2.json', data);  
+    
     res.status(200).send("Success");
     //} else {
     //res.status(400).send("Request needs a body with a URL and caption");
     //}
-  } //else {
+    } //else {
     //next();
   //}
+});
+
+app.post('/quizzes/quizSave', function (req, res) {
+    console.log("Requested /quizzes/quizSave");
+    var id = req.body.id;
+    var globalQuestionList = req.body.globalQuestionList;
+    console.log("== req.body:", req.body);
+
+    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
+    //data = data["quiz-array"];
+    //var ourData = data[id];
+    data[id]["quiz-array"] = globalQuestionList;
+    
+    
+    
+    fs.writeFileSync('./quizData.json', JSON.stringify(data, null, 2), 'utf8');  
+    
+    res.status(200).send("Success");
 });
 
 

@@ -59,15 +59,11 @@ app.get('/quizzes/:id', function (req, res, next) {
 	}
 });
 
-app.get('/teacher-hub/create-quiz', function(req, res, next) {
+app.get('/teacher-hub/create-quiz/:id', function(req, res, next) {
+	var id = 
 	res.render('quizCreator.handlebars');
 });
 
-/*app.get('/quizzes', function(req, res) {
-	res.status(200).render('testQuizzes', {
-
-	});
-});*/
 
 app.get('*', function(req, res) {	
 	res.status(404).render('404', {

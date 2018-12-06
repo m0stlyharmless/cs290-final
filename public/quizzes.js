@@ -38,6 +38,10 @@ function endQuiz() {
                 console.log(inputs);
             }
             console.log(answerIndexes);
+            // send the answers to the server
+            sendQuizData(function(response) {
+                 console.log(response);
+            }
             
             //var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + quizID;
             //window.location.href = quizURL;
@@ -57,12 +61,10 @@ function loadJSON(callback) {
   xobj.send(null);  
 }
 
-/*
-
 function sendQuizData(callback) {   
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('POST', 'quizData.json', true);
+    xobj.open('POST', '/quizzes/name/postResponse', true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);
@@ -70,4 +72,4 @@ function sendQuizData(callback) {
     };
     xobj.send(null);  
 }
-*/
+

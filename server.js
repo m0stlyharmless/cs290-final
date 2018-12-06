@@ -30,24 +30,30 @@ app.get('/quizData', function(req, res) {
 });
 
 app.get('/quizData.json', (req, res) => {
-    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8')); /* Inside the get function */
+    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
     console.log("Requested quizData.json");
     res.sendFile(path.join(__dirname, 'quizData.json'));
 });
-/*
-
-app.set('/quizData.json', (req, res) => {
-  //console.log(res)
-   console.log("Requested quizData.json");
 
 
-
-  res.sendFile(path.join(__dirname, 'quizData.json'));
+app.post('/quizzes/name/postResponse', function (req, res, next) {
+  var name = req.params.name.toLowerCase();
+  var id = req.params.id;
+  var answerIndexes = req.params.answerIndexes;
+  var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
+  if (data[id]) {
+    console.log("== req.body:", req.body);
+    //if (req.body && req.body.url && req.body.caption) {
+    //console.log("== peopleData[" + person + "]:", peopleData[person]);
+    res.status(200).send("Success");
+    //} else {
+    //res.status(400).send("Request needs a body with a URL and caption");
+    //}
+  } else {
+    next();
+  }
 });
-*/
-app.get('/', function(req, res) {
-	res.status(200).render('homePage', {});
-});
+
 
 app.get('/quizzes/:id', function (req, res, next) {
     var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8')); /* Inside the get function */
@@ -60,8 +66,12 @@ app.get('/quizzes/:id', function (req, res, next) {
 });
 
 app.get('/teacher-hub/create-quiz/:id', function(req, res, next) {
-	var id = 
 	res.render('quizCreator.handlebars');
+});
+
+
+app.get('/', function(req, res) {
+	res.status(200).render('homePage', {});
 });
 
 

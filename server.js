@@ -27,6 +27,11 @@ app.get('/student-hub', function(req, res) {
 });
 
 
+app.get('/results', function(req, res) {
+	res.status(200).render('results', {});
+
+});
+
 app.get('/quizData', function(req, res) {
 	res.status(200).render('studentHub', {});
 

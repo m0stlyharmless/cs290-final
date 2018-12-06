@@ -5,7 +5,7 @@ var editButton = document.getElementById('edit-quiz');
 createButton.addEventListener('click', createButtonPressed);
 editButton.addEventListener('click', editButtonPressed);
 
-//sURL = window.location.protocol + '//' + window.location.host + '/student-hub';
+
 //tURL = window.location.protocol + '//' + window.location.host + '/teacher-hub';
 console.log(5 + 6);
 
@@ -23,6 +23,8 @@ function createButtonPressed() {
 		else
 		{
 			// Passed
+            var tURL = window.location.protocol + '//' + window.location.host + '/teacher-hub/create-quiz/'+inputField.value;
+            window.location.href = tURL;
 		}
 	 });
 }
@@ -37,6 +39,8 @@ function editButtonPressed() {
 		console.log(quizData);
 		if (quizData[quiz]) {
 			// Passed
+            var tURL = window.location.protocol + '//' + window.location.host + '/teacher-hub/create-quiz/'+inputField.value;
+            window.location.href = tURL;
 		}
 		else
 		{

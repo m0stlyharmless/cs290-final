@@ -1,15 +1,16 @@
 {{> header}}
-
+{{#with results}}
 <main class="page">
 	<aside class="t-hub-container">
 		<div class="teacher-hub-container">
-			<b id="top">Results</b>
+			<b id="top">Result:</b>
 		</div>
 		<div class="teacher-hub-container">
-			<b class="top">{{name}}</b>
+			<b class="top">Student: {{name}}</b>
 		</div>
 		<div class="teacher-hub-container">
-			<b class="top">{{result}}</b>
+			<b class="top">Score: {{result}}%</b>
 		</div>
 	</aside>
 </main>
+{{/with}}

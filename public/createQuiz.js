@@ -50,10 +50,7 @@ function init(){
 }
 
 function saveQuiz() {
-    loadJSON(function(response) {
-        var actual_JSON = JSON.parse(response);
-        var quizData = actual_JSON;
-    });
+
     
     if(globalQuestionList.length == 0){
         alert("A quiz needs at least one question.");
@@ -109,6 +106,89 @@ function addQuestion() {
     var quizHTML = Handlebars.templates.quiz2(quizContext);
     var questionSection = document.getElementById('quiz-create-holder');
     questionSection.insertAdjacentHTML('beforeend', quizHTML); 
+    console.log("questionSection childnodes.length:" + questionSection.childNodes.length);
+    var doc = null;
+    for (var i = questionSection.childNodes.length-1; i >= 0; i--) {
+        if (questionSection.childNodes[i].className == "question") {
+            doc = questionSection.childNodes[i];
+            break;
+        }
+    }
+    var radioButtons = null;
+    for (var i = 0; i < doc.childNodes.length; i++) {
+        //console.log("nodes:" + doc.childNodes[i]);
+        //console.log("node classname:" + doc.childNodes[i].className);
+        if (doc.childNodes[i].className == "radio-buttons") {
+            radioButtons = doc.childNodes[i];
+            
+            var questionHeader = null;
+            var actualQuestionText = null;
+            //console.log("radioButtons chilren:" + radioButtons.childNodes.length);
+            for (var g = 0; g < radioButtons.childNodes.length; g++) {
+                console.log("node classname:" + radioButtons.childNodes[g].className);
+                if (radioButtons.childNodes[g].className == "questionTextHeader") {
+                    questionHeader = radioButtons.childNodes[g];
+                    
+                    //console.log("!!!!questionHeader found!");
+                    for (var h = 0; h < questionHeader.childNodes.length; h++) {
+                        if (questionHeader.childNodes[h].className == "actualText") {
+                            actualQuestionText = questionHeader.childNodes[h];
+                            console.log("!!!!actualQuestionText found!");
+                        }
+                    }
+                }
+            }
+            
+            var closeButtonDiv = null;
+            for (var a = 0; a < radioButtons.childNodes.length; a++) {
+                if (radioButtons.childNodes[a].className == "close-button") {
+                    closeButtonDiv = radioButtons.childNodes[a];
+                    var closeButton = null;
+                    for (var b = 0; b < closeButtonDiv.childNodes.length; b++) {
+                        if (closeButtonDiv.childNodes[b].className == "close") {
+                            closeButton = closeButtonDiv.childNodes[b];
+                            //console.log("close actually found!");
+                            closeButton.onclick= function()
+                            {
+                                var questionStatement = actualQuestionText.getAttribute("data-name");
+                                loadJSON(function(response) {
+                                    var actual_JSON = JSON.parse(response);
+                                    var quizData = actual_JSON;
+                                    var ourQuizData = quizData[quizID];
+                                    if (ourQuizData) {
+                                        //console.log("Found Quiz Data");
+                                        // time to go through each question and tally up score
+                                        var numQuestions = ourQuizData["quiz-array"].length;
+                                        //console.log(numQuestions);
+                                        
+                                        var answerIndexes = [];
+                                       
+                                        for(var u = 0; u < numQuestions; u++){
+                                            
+                                            var currentQuestionName = ourQuizData["quiz-array"][u]["question"];
+                                            console.log("currentQuestionName: " + currentQuestionName);
+                                            console.log("questionStatement: " + questionStatement);
+                                            if(currentQuestionName == questionStatement){
+                                                console.log("Found correct index!!!!!!!!!!!!");
+                                                globalQuestionList.splice(u, 1);
+                                            }  
+                                        }
+                                    }
+                                });
+                                questionSection.removeChild(doc);
+                            };
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        else
+        {
+            console.log("close failed!");
+        }
+
+    }
 }
 
 function addQuestionWithParams(question,answerOne,answerTwo,answerThree,answerFour,correctAnswer) {
@@ -119,18 +199,99 @@ function addQuestionWithParams(question,answerOne,answerTwo,answerThree,answerFo
 		thirdAnswer: answerThree,
 		fourthAnswer: answerFour
 	};
-
     
-	console.log(quizContext);
-    /*
-	if(!(question && answerOne && answerTwo && answerThree && answerFour && correctAnswer)) {
-		alert("One or more fields left blank!");
-	}
-    */
-	//else {
+    pathArr = window.location.pathname.split('/');
+
+    var quizID = pathArr[3];
+
     var quizHTML = Handlebars.templates.quiz2(quizContext);
     var questionSection = document.getElementById('quiz-create-holder');
     questionSection.insertAdjacentHTML('beforeend', quizHTML); 
+    
+    console.log("questionSection childnodes.length:" + questionSection.childNodes.length);
+    var doc = null;
+    for (var i = questionSection.childNodes.length-1; i >= 0; i--) {
+        if (questionSection.childNodes[i].className == "question") {
+            doc = questionSection.childNodes[i];
+            break;
+        }
+    }
+    var radioButtons = null;
+    for (var i = 0; i < doc.childNodes.length; i++) {
+        //console.log("nodes:" + doc.childNodes[i]);
+        //console.log("node classname:" + doc.childNodes[i].className);
+        if (doc.childNodes[i].className == "radio-buttons") {
+            radioButtons = doc.childNodes[i];
+            
+            var questionHeader = null;
+            var actualQuestionText = null;
+            //console.log("radioButtons chilren:" + radioButtons.childNodes.length);
+            for (var g = 0; g < radioButtons.childNodes.length; g++) {
+                console.log("node classname:" + radioButtons.childNodes[g].className);
+                if (radioButtons.childNodes[g].className == "questionTextHeader") {
+                    questionHeader = radioButtons.childNodes[g];
+                    
+                    //console.log("!!!!questionHeader found!");
+                    for (var h = 0; h < questionHeader.childNodes.length; h++) {
+                        if (questionHeader.childNodes[h].className == "actualText") {
+                            actualQuestionText = questionHeader.childNodes[h];
+                            console.log("!!!!actualQuestionText found!");
+                        }
+                    }
+                }
+            }
+            
+            
+            var closeButtonDiv = null;
+            for (var a = 0; a < radioButtons.childNodes.length; a++) {
+                if (radioButtons.childNodes[a].className == "close-button") {
+                    closeButtonDiv = radioButtons.childNodes[a];
+                    var closeButton = null;
+                    for (var b = 0; b < closeButtonDiv.childNodes.length; b++) {
+                        if (closeButtonDiv.childNodes[b].className == "close") {
+                            closeButton = closeButtonDiv.childNodes[b];
+                            //console.log("close actually found!");
+                            closeButton.onclick= function()
+                            {
+                                var questionStatement = actualQuestionText.getAttribute("data-name");
+                                loadJSON(function(response) {
+                                    var actual_JSON = JSON.parse(response);
+                                    var quizData = actual_JSON;
+                                    var ourQuizData = quizData[quizID];
+                                    if (ourQuizData) {
+                                        //console.log("Found Quiz Data");
+                                        // time to go through each question and tally up score
+                                        var numQuestions = ourQuizData["quiz-array"].length;
+                                        //console.log(numQuestions);
+                                        
+                                        var answerIndexes = [];
+
+                                        for(var u = 0; u < numQuestions; u++){
+                                            
+                                            var currentQuestionName = ourQuizData["quiz-array"][u]["question"];
+                                            console.log("currentQuestionName: " + currentQuestionName);
+                                            console.log("questionStatement: " + questionStatement);
+                                            if(currentQuestionName == questionStatement){
+                                                console.log("Found correct index!!!!!!!!!!!!");
+                                                globalQuestionList.splice(u, 1);
+                                            }  
+                                        }
+                                    }
+                                });
+                                questionSection.removeChild(doc);
+                            };
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        else
+        {
+            console.log("close failed!");
+        }
+
+    }
 	//}
 }
 

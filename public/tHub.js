@@ -11,6 +11,10 @@ console.log(5 + 6);
 
 function createButtonPressed() {
     quiz = inputField.value;
+    if(quiz == ""){
+        alert("Please enter a valid ID");
+        return;
+    }
     console.log("QuizRequested = <" + quiz + ">");
     loadJSON(function(response) {
         // Parse JSON string into object
@@ -31,6 +35,10 @@ function createButtonPressed() {
 
 function editButtonPressed() {
 	quiz = inputField.value;
+    if(quiz == ""){
+        alert("Please enter a valid ID");
+        return;
+    }
 	console.log("QuizRequested = <" + quiz + ">");
     loadJSON(function(response) {
         // Parse JSON string into object

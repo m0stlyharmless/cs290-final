@@ -78,7 +78,7 @@ app.post('/quizzes/postResponse', function (req, res) {
                 totalCorrect++;
             }
         }
-        var percentage = totalCorrect/numQuestions;
+        var percentage = (totalCorrect/numQuestions)*100;
         
         var newResultData = {"results": {"name": name, "result": percentage}};
         
@@ -87,30 +87,28 @@ app.post('/quizzes/postResponse', function (req, res) {
         res.status(200).send("Success");
         
     }
-    
-    
-    //if (req.body && req.body.url && req.body.caption) {
-    //console.log("== peopleData[" + person + "]:", peopleData[person]);
-    
-
-    //} else {
-    //res.status(400).send("Request needs a body with a URL and caption");
-    //}
-    //} //else {
-    //next();
-  //}
 });
 
 app.post('/quizzes/quizSave', function (req, res) {
     console.log("Requested /quizzes/quizSave");
     var id = req.body.id;
+    console.log("id:" + id);
     var globalQuestionList = req.body.globalQuestionList;
     console.log("== req.body:", req.body);
 
     var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
     //data = data["quiz-array"];
-    //var ourData = data[id];
-    data[id]["quiz-array"] = globalQuestionList;
+    var ourData = data[id];
+    if(ourData){ 
+        data[id]["quiz-array"] = globalQuestionList;
+    }
+    else
+    {
+    data[id] = {"quiz-array": globalQuestionList};
+        //data.push(id: {"quiz-array": []});
+        //data[id]["quiz-array"] = globalQuestionList;
+        //data.push(globalQuestionList);
+    }
     
     
     

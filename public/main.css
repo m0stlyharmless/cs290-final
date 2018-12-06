@@ -111,7 +111,7 @@ header {
 .teacher-hub-container {
 	width: 100%;
 	margin-top: 10px;
-	padding: 0px
+	padding: 0px;
 	align-items: center;
 	display: flex;
 	align-items: center;
@@ -120,7 +120,7 @@ header {
 #name-text, #get-id-text {	
 	font-size: 20px;
 	margin-top: 0px;
-	color black;
+	color: black;
 	border: 1px solid grey;
 	border-radius: 3px;
 	width: 150px;
@@ -129,7 +129,7 @@ header {
 #id-text {
 	font-size: 25px;
 	margin-top: 15px;
-	color black;
+	color: black;
 	border: 1px solid grey;
 	border-radius: 3px;
 	width: 150px;
@@ -191,7 +191,7 @@ legend {
 	margin-left: 10px;
 	margin-right: 10px;
 	font-size: 20px;
-	font-style: "bookman";
+	font-family: "bookman";
 }
 
 

@@ -108,7 +108,7 @@ header {
 	margin-right: 30px;
 }
 
-#top {
+#top, .top {
 	font-size: 50px;
 	font-family: "Bookman";
 	margin-left: 30%;

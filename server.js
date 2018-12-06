@@ -66,6 +66,10 @@ app.get('/quizzes/:id', function (req, res, next) {
 	}
 });
 
+app.get('/teacher-hub/create-quiz', function(req, res, next) {
+	res.render('quizCreator.handlebars');
+});
+
 /*app.get('/quizzes', function(req, res) {
 	res.status(200).render('testQuizzes', {
 

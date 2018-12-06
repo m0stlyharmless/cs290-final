@@ -80,21 +80,7 @@ app.get('/quizzes/id/:id/name/:name', function (req, res, next) {
 	}
 });
 
-/*
-app.get('/quizzes', function (req, res, next) {
-    console.log("&&&&= " + req.params.name);
-    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
-	var quizId = req.query.params.id.toLowerCase();
-    var quizName = req.query.params.name.toLowerCase();
-    
-	if (data[quizId]) {
-		res.render('quizzes', {"data": data[quizId], "id": quizId, "name": quizName});
-	} else {
-		next();
-	}
-});
-*/
-app.get('/teacher-hub/create-quiz', function(req, res, next) {
+app.get('/teacher-hub/create-quiz/:id', function(req, res, next) {
 	res.render('quizCreator.handlebars');
 });
 

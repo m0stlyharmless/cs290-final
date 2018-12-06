@@ -5,13 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "handlebars views/partials/quiz.handlebars -f public/quizQuestion.js"
   },
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.12"
+    "handlebars": "^4.0.12",
+    "axios": "^0.18.0"
   }
 }

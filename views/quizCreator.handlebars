@@ -1,0 +1,38 @@
+{{> header}}
+<script src="/quizQuestion.js" charset="utf-8" defer></script>
+<script src="/createQuiz.js" charset="utf-8" defer></script>
+<main class="page">
+	<aside class="t-hub-container" id="quiz-create-holder">
+		<div class="teacher-hub-container">
+			<b id="top">Quiz Creator</b>
+		</div>
+		<div class="teacher-hub-container">
+			<label for="question-text" id="question-txt" class="answer-text">Enter question</label>
+			<input type="text" name="question-text" id="get-question">
+		</div>
+		<div class="teacher-hub-container">
+			<label for="answer-one" id="answer-one-txt" class="answer-text">Enter answer 1</label>
+			<input type="text" name="first-answer-input" id="get-question-one" class="answer-text-field">
+		</div>
+		<div class="teacher-hub-container">
+			<label for="answer-two" id="answer-two-txt" class="answer-text">Enter answer 2</label>
+			<input type="text" name="second-answer-input" id="get-question-two" class="answer-text-field">
+		</div>
+		<div class="teacher-hub-container">
+			<label for="answer-three" id="answer-three-txt" class="answer-text">Enter answer 3</label>
+			<input type="text" name="third-answer-input" id="get-question-three" class="answer-text-field">
+		</div>
+		<div class="teacher-hub-container">
+			<label for="answer-four" id="answer-four-txt" class="answer-text">Enter answer 4</label>
+			<input type="text" name="fourth-answer-input" id="get-question-four" class="answer-text-field">
+		</div>	
+		<div class="teacher-hub-container">
+			<label for="correct-answer" id="answer-key" class="answer-text">Enter the correct answer</label>
+			<input type="text" name="correct-answer-input" id="get-key" class="answer-text-field">
+		</div>
+		<div>
+			<button type="button" id="submit-quiz" class"create-button">Finish Quiz</button>
+			<button type="button" id="add-question" class"create-button">Add Question</button>
+		</div>
+	</aside>
+</main>

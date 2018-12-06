@@ -1,21 +1,15 @@
 let questionResults = [];
 
 function getResults() {
-    let questions = document.getElementsByClassName("question");
+    let questions = document.getElementsByClassName("answers");
     console.log("Number of questions: " + questions.length);
-    for (let i = 0; i < questions.length; i++) {
-        let fieldset = questions[i];
-        for (let j = 0; j < fieldset.length; j++) {
-            let checkbox = fieldset[j];
-            if (checkbox.value) {
-                questionResults.push(j);
-                break;
-            }
-        }
+    for (let question in questions) {
+        console.log("question: " + question.valueOf());
     }
 }
 
 document.getElementById("submit").onclick = function () {
     getResults();
+    console.log("Question results: " + questionResults.length);
 };
     

@@ -4,7 +4,7 @@ const app = express();
 const exphbs = require('express-handlebars');
 const port = process.env.PORT || 3000;
 var fs = require('fs'); /* Put it where other modules included */
-var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8')); /* Inside the get function */
+
 
 //var quizData = require('./quizData');
 
@@ -30,17 +30,9 @@ app.get('/quizData', function(req, res) {
 });
 
 app.get('/quizData.json', (req, res) => {
-  //console.log(res)
-   console.log("Requested quizData.json");
-
-  /* Insted of doing all this */
-  // res.writeHead(200, {
-  //    'Content-type': 'application/json'
-  // });
-  // res.end(JSON.stringify(data));
-
-  /* Just send the file */
-  res.sendFile(path.join(__dirname, 'quizData.json'));
+    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8')); /* Inside the get function */
+    console.log("Requested quizData.json");
+    res.sendFile(path.join(__dirname, 'quizData.json'));
 });
 /*
 
@@ -58,6 +50,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/quizzes/:id', function (req, res, next) {
+    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8')); /* Inside the get function */
 	var quizId = req.params.id.toLowerCase();
 	if (data[quizId]) {
 		res.render('quizzes', data[quizId]);

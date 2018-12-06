@@ -142,7 +142,7 @@ header {
 #get-key {
 	font-size: 20px;
 	margin-top: 0px;
-	color black;
+	color: black;
 	border: 1px solid grey;
 	border-radius: 3px;
 	width: 50%;
@@ -152,7 +152,7 @@ header {
 #name-text, #get-id-text, .answer-text-field {	
 	font-size: 20px;
 	margin-top: 0px;
-	color black;
+	color: black;
 	border: 1px solid grey;
 	border-radius: 3px;
 	width: 50%;

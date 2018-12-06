@@ -39,9 +39,9 @@ function endQuiz() {
             }
             console.log(answerIndexes);
             // send the answers to the server
-            sendQuizData(function(response) {
+            sendQuizData(answerIndexes, function(response) {
                  console.log(response);
-            }
+            });
             
             //var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + quizID;
             //window.location.href = quizURL;
@@ -52,7 +52,7 @@ function endQuiz() {
 function loadJSON(callback) {   
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
-  xobj.open('GET', '../quizData.json', true);
+  xobj.open('GET', '../../../../quizData.json', true);
   xobj.onreadystatechange = function () {
     if (xobj.readyState == 4 && xobj.status == "200") {
 	  callback(xobj.responseText);
@@ -61,15 +61,28 @@ function loadJSON(callback) {
   xobj.send(null);  
 }
 
-function sendQuizData(callback) {   
+function sendQuizData(answerIndexes, callback) {   
     var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('POST', '/quizzes/name/postResponse', true);
+    //xobj.overrideMimeType("application/json");
+
+
+    
+    var requestBody = JSON.stringify({
+      name: studentName,
+      id: quizID,
+      answerIndexes: answerIndexes
+    });
+    
+    
+    xobj.open('POST', '../../../../quizzes/postResponse');
+    xobj.setRequestHeader(
+      'Content-Type', 'application/json'
+    );
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);
         }
     };
-    xobj.send(null);  
+    xobj.send(requestBody);  
 }
 

@@ -11,9 +11,10 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.12",
-    "axios": "^0.18.0"
+    "handlebars": "^4.0.12"
   }
 }

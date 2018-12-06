@@ -8,9 +8,12 @@ function startQuiz() {
         var actual_JSON = JSON.parse(response);
         var quizData = actual_JSON;
         if (quizData[quizID]) {
-            var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + quizID;
+            //var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + quizID;// + '/' + studentName;
+            var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes/id/' + quizID + '/name/' + studentName;
+            //var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '?id=' + quizID + '&name=' + studentName;
+            //var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + {"id":quizID, "name", studentName};
             window.location.href = quizURL;
-        }
+        }//http://localhost/articles?year=2016&month=1&day=19
         else
         {
             alert("This quiz ID doesn't exist. See your system administrator for assistance.");

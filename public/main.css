@@ -206,6 +206,18 @@ a {
 	float: right;
 }
 
+.close {
+	height: 30px;
+	width: 30px;
+	float: right;
+	border: 2px solid grey;
+	padding: 3px;
+	font-size: 20px;
+	cursor: pointer;
+	background-color: lightgrey;
+	
+}
+
 legend {
 	font-size: 20px;
 }

@@ -121,8 +121,8 @@ app.post('/quizzes/quizSave', function (req, res) {
 app.get('/quizzes/id/:id/name/:name', function (req, res, next) {
     console.log("&&&&= " + req.params);
     var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
-	var quizId = req.params.id.toLowerCase();
-    var quizName = req.params.name.toLowerCase();
+	var quizId = req.params.id;
+    var quizName = req.params.name;
     
 	if (data[quizId]) {
 		res.render('quizzes', {"data": data[quizId], "id": quizId, "name": quizName});

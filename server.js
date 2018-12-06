@@ -53,7 +53,7 @@ app.get('/quizzes/:id', function (req, res, next) {
     var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8')); /* Inside the get function */
 	var quizId = req.params.id.toLowerCase();
 	if (data[quizId]) {
-		res.render('quizzes', data[quizId]);
+		res.render('quizzes', {"data": data[quizId], "id": quizId});
 	} else {
 		next();
 	}

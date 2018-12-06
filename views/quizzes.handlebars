@@ -1,13 +1,18 @@
 {{> header}}
+<script type="text/javascript">
+  var quizID="{{id}}";
+</script>
 <script src="/quizzes.js" charset="utf-8" defer></script>
 <main class="page">
 	<div class="left-side">
 		
 	</div>
 	<section class="question-holder">
-		{{#each quiz-array}}
-			{{> quiz}}
-		{{/each}}
+        {{#with data}}
+            {{#each quiz-array}}
+                {{> quiz}}
+            {{/each}}
+        {{/with}}
 		<div class="submit-button-holder">
 			<button type="button" id="submit" class="create-button">Submit Quiz</button>
 		</div>

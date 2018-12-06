@@ -6,7 +6,7 @@ function startQuiz() {
 	var studentName = document.getElementById('name-text').value;
     loadJSON(function(response) {
         var actual_JSON = JSON.parse(response);
-        quizData = actual_JSON;
+        var quizData = actual_JSON;
         if (quizData[quizID]) {
             var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + quizID;
             window.location.href = quizURL;

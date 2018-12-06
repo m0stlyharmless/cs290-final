@@ -31,8 +31,9 @@ app.get('/results', function(req, res) {
     
     // load results file.
     
+    var data = JSON.parse(fs.readFileSync('./resultData.json', 'utf8'));
     
-	res.status(200).render('results', {});
+	res.status(200).render('results', data);
 
 });
 
@@ -42,7 +43,8 @@ app.get('/quizData', function(req, res) {
 });
 
 app.get('/quizData.json', (req, res) => {
-    var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
+    //var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
+
     console.log("Requested quizData.json");
     res.sendFile(path.join(__dirname, 'quizData.json'));
 });
@@ -52,6 +54,7 @@ app.post('/quizzes/postResponse', function (req, res) {
     console.log("Requested /quizzes/postResponse");
     //var actual_JSON = JSON.parse(req.body);
     console.log(req.body.name);
+    console.log("== req.body:", req.body);
     var name = req.body.name;
     var id = req.body.id;
     var answerIndexes = req.body.answerIndexes;
@@ -62,18 +65,38 @@ app.post('/quizzes/postResponse', function (req, res) {
     //var id = req.params.id;
     //var answerIndexes = req.params.answerIndexes;
     var data = JSON.parse(fs.readFileSync('./quizData.json', 'utf8'));
-    if (data[id]) {
-    console.log("== req.body:", req.body);
+    var ourQuizData = data[id];
+    if (ourQuizData) {
+        // time to go through each question and tally up score
+        var numQuestions = ourQuizData["quiz-array"].length
+        console.log(numQuestions);
+        
+        var totalCorrect = 0;
+        for(var i = 0; i < numQuestions; i++){
+            var correctIndex = ourQuizData["quiz-array"][i]["correctAnswerIndex"];
+            if(correctIndex == answerIndexes[i]){
+                totalCorrect++;
+            }
+        }
+        var percentage = totalCorrect/numQuestions;
+        
+        var newResultData = {"results": {"name": name, "result": percentage}};
+        
+        fs.writeFileSync('./resultData.json', JSON.stringify(newResultData, null, 2), 'utf8');  
+
+        res.status(200).send("Success");
+        
+    }
+    
+    
     //if (req.body && req.body.url && req.body.caption) {
     //console.log("== peopleData[" + person + "]:", peopleData[person]);
     
-    fs.writeFileSync('student-2.json', data);  
-    
-    res.status(200).send("Success");
+
     //} else {
     //res.status(400).send("Request needs a body with a URL and caption");
     //}
-    } //else {
+    //} //else {
     //next();
   //}
 });

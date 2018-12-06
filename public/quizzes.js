@@ -16,9 +16,7 @@ function endQuiz() {
             console.log(numQuestions);
             
             var answerIndexes = [];
-            
-            var quizButton = document.getElementById('submit');
-            quizButton.addEventListener('click', endQuiz);
+           
             
             for(var i = 0; i < numQuestions; i++){
                 var currentQuestionName = ourQuizData["quiz-array"][i]["question"];

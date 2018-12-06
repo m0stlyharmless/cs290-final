@@ -43,6 +43,10 @@ function endQuiz() {
                  console.log(response);
             });
             
+            alert("Your answers have been submitted.");
+            rURL = window.location.protocol + '//' + window.location.host + '/results';
+            window.location.href = rURL;
+            
             //var quizURL = window.location.protocol + '//' + window.location.host + '/quizzes' + '/' + quizID;
             //window.location.href = quizURL;
         }
